@@ -35,7 +35,7 @@ public class App {
     }
 
     void fileOutput() throws IOException {
-        File file = new File("C:\\Users\\Динара\\IdeaProjects\\palindromos\\src\\main\\java\\score.txt");
+        File file = new File("score.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         for (int i = 0; i < playersScore.size(); i++) {
             int scores = playersScore.get(i);
