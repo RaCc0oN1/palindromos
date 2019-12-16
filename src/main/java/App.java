@@ -1,7 +1,5 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 public class App {
     ArrayList<Integer> playersScore = new ArrayList(); // min max = 5;
@@ -34,6 +32,17 @@ public class App {
                     break;
             }
         }
+    }
+
+    void fileOutput() throws IOException {
+        File file = new File("C:\\Users\\Динара\\IdeaProjects\\palindromos\\src\\main\\java\\score.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        for (int i = 0; i < playersScore.size(); i++) {
+            int scores = playersScore.get(i);
+            String string = "【 Игрок " + (i + 1) + " 】 - " + scores + "\n";
+            fileOutputStream.write(string.getBytes());
+        }
+        fileOutputStream.close();
     }
 
     //-----------------------------------------------------------------\\
@@ -69,13 +78,17 @@ public class App {
         return 0;
     }
 
-    void scoreAdder(int score) {
-
+    void scoreAdder(int score) throws IOException {
+        int saveFromOut = score;
         if (playerI <= 5) {
-            playersScore.set(playerI, playersScore.get(playerI) + score);
-            playerI++;
-        } else {
-            playerI = 0;
+            try {
+                playersScore.set(playerI, playersScore.get(playerI) + score);
+                playerI++;
+                fileOutput();
+            } catch (IndexOutOfBoundsException e) {
+                playerI = 0;
+                scoreAdder(saveFromOut);
+            }
         }
     }
 
