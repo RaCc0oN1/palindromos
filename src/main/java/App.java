@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class App {
     private ArrayList<Integer> playersScore = new ArrayList(); // min max = 5;
     private ArrayList words = new ArrayList(); // infinity
-
+    public IO file = new IO();
 
    private int playerI = 0;
 
@@ -18,7 +18,7 @@ public class App {
  app.typeWords("123");
  app.typeWords("вав");
  app.typeWords("сас");
- app.typeWords("саас");
+// app.typeWords("саас");
     }
 
 
@@ -57,7 +57,7 @@ public class App {
             try {
                 playersScore.set(playerI, playersScore.get(playerI) + score);
                 playerI++;
-                fileOutput();
+                file.fileOutput(playersScore);
             } catch (IndexOutOfBoundsException e) {
                 playerI = 0;
                 scoreAdder(saveFromOut);
@@ -90,15 +90,6 @@ public class App {
 
     }
 
-    private void fileOutput() throws IOException {
-        File file = new File("score.txt");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        for (int i = 0; i < playersScore.size(); i++) {
-            int scores = playersScore.get(i);
-            String string = "【 Игрок " + (i + 1) + " 】 - " + scores + "\n";
-            fileOutputStream.write(string.getBytes());
-        }
-        fileOutputStream.close();
-    }
+
 
 }
