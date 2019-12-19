@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class IO {
 
-    void fileOutput(ArrayList<Integer> playerScore) throws IOException {
+   static void fileOutput(ArrayList<Integer> playerScore) throws IOException {
         File file = new File("score.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         for (int i = 0; i < playerScore.size(); i++) {

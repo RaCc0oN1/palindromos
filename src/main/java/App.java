@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class App {
     private ArrayList<Integer> playersScore = new ArrayList(); // min max = 5;
     private ArrayList words = new ArrayList(); // infinity
-    public IO file = new IO();
 
    private int playerI = 0;
 
@@ -57,7 +56,7 @@ public class App {
             try {
                 playersScore.set(playerI, playersScore.get(playerI) + score);
                 playerI++;
-                file.fileOutput(playersScore);
+                IO.fileOutput(playersScore);
             } catch (IndexOutOfBoundsException e) {
                 playerI = 0;
                 scoreAdder(saveFromOut);
