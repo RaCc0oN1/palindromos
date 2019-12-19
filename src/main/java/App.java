@@ -5,21 +5,20 @@ public class App {
     private ArrayList<Integer> playersScore = new ArrayList(); // min max = 5;
     private ArrayList words = new ArrayList(); // infinity
 
-   private int playerI = 0;
+    private int playerI = 0;
 
     public static void main(String[] args) throws IOException {
- App app = new App();
- app.mustHaveToStart();
- app.typeWords("ара");
- app.typeWords("ара");
- app.typeWords("арра");
- app.typeWords("ааа");
- app.typeWords("123");
- app.typeWords("вав");
- app.typeWords("сас");
-// app.typeWords("саас");
+        App app = new App();
+        app.mustHaveToStart();
+        app.typeWords("ара");
+        app.typeWords("ара");
+        app.typeWords("арра");
+        app.typeWords("ааа");
+        app.typeWords("123");
+        app.typeWords("вав");
+        app.typeWords("сас");
+        app.typeWords("саас");
     }
-
 
 
     //-----------------------------------------------------------------\\
@@ -88,7 +87,6 @@ public class App {
         playersScore.add(0);
 
     }
-
 
 
 }
